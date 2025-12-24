@@ -1,1 +1,500 @@
-1
+/* Project: Velaro-Trend.blog
+    Style: Modern Antidesign / Consulting
+    Palette: Deep Brown (#1a1614) & Acid Lime (#d4ff3f)
+*/
+
+/* --- 1. ГЛОБАЛЬНЫЕ НАСТРОЙКИ --- */
+:root {
+  --color-bg: #1a1614;
+  --color-card: #241e1b;
+  --color-text: #fdfaf6;
+  --color-accent: #d4ff3f;
+  --color-muted: #3d3530;
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Syne', sans-serif;
+  --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: initial; /* Для Lenis.js */
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+/* --- 2. ТИПОГРАФИКА --- */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.section__title {
+  font-size: clamp(2.0rem, 7vw, 5rem);
+  line-height: 0.9;
+  margin-bottom: 50px;
+  letter-spacing: -2px;
+}
+
+.outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-text);
+}
+
+/* --- 3. ХЕДЕР И МОБИЛЬНОЕ МЕНЮ --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 30px 0;
+  transition: var(--transition);
+}
+
+.header--scrolled {
+  padding: 15px 0;
+  background: rgba(26, 22, 20, 0.8);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--color-muted);
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo__dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-accent);
+}
+
+.nav__list {
+  display: flex;
+  gap: 40px;
+}
+
+.nav__link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.6;
+}
+
+.nav__link:hover {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+/* Burger */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.burger span {
+  width: 30px;
+  height: 2px;
+  background: var(--color-accent);
+  transition: var(--transition);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background: var(--color-bg);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+.mobile-menu__list {
+  text-align: center;
+}
+
+.mobile-menu__list a {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  display: block;
+  margin: 20px 0;
+}
+
+/* --- 4. КНОПКИ --- */
+.btn {
+  display: inline-block;
+  padding: 18px 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn--primary {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.btn--primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(212, 255, 63, 0.2);
+}
+
+/* --- 5. СЕКЦИИ --- */
+.section {
+  padding: 120px 0;
+}
+
+/* Hero Section (с увеличенным паддингом) */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 180px; /* Увеличен по просьбе */
+  padding-bottom: 100px;
+  background: radial-gradient(circle at 80% 20%, #2a2420 0%, var(--color-bg) 60%);
+}
+
+.hero__title {
+  font-size: clamp(2.5rem, 11vw, 8.5rem);
+  line-height: 0.85;
+  margin-bottom: 40px;
+}
+
+.hero__lead {
+  max-width: 600px;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  margin-bottom: 50px;
+}
+
+/* Trends (Grid 2) */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Benefits (Analytics) */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.benefit-card {
+  padding: 50px;
+  background: var(--color-card);
+  border: 1px solid var(--color-muted);
+}
+
+.benefit-card h3 {
+  color: var(--color-accent);
+  margin-bottom: 15px;
+}
+
+/* --- 6. КЕЙСЫ И БЛОГ (НОВЫЕ) --- */
+.cases-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.case-item__img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+}
+
+.case-item__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: var(--transition);
+}
+
+.case-item:hover .case-item__img img {
+  filter: grayscale(0);
+  transform: scale(1.05);
+}
+
+.case-item__overlay {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 5px 12px;
+  font-weight: 800;
+  font-size: 0.7rem;
+}
+
+.case-item__info { margin-top: 20px; }
+.case-tag { color: var(--color-accent); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+
+/* Blog */
+.blog-list { border-top: 1px solid var(--color-muted); }
+.blog-card {
+  display: grid;
+  grid-template-columns: 200px 1fr 50px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--color-muted);
+  align-items: center;
+}
+.blog-card:hover { background: rgba(212, 255, 63, 0.05); padding-left: 20px; }
+.blog-card__date { opacity: 0.4; font-family: var(--font-heading); }
+.blog-card__arrow { font-size: 1.5rem; color: var(--color-accent); }
+
+/* --- 7. КОНТАКТЫ И ФОРМА --- */
+.contact-box {
+  background: var(--color-card);
+  padding: 80px;
+  border-left: 8px solid var(--color-accent);
+}
+
+.form {
+  display: grid;
+  gap: 30px;
+  max-width: 600px;
+}
+
+.form input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-muted);
+  padding: 15px 0;
+  color: #fff;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.form input:focus { border-color: var(--color-accent); }
+
+.captcha-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: var(--color-accent);
+  font-weight: 800;
+}
+
+.form-message {
+  padding: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: none; /* Управляется через JS */
+}
+
+/* --- 8. ФУТЕР --- */
+.footer {
+  padding: 100px 0 40px;
+  border-top: 1px solid var(--color-muted);
+  background: #151210;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.footer__title {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.footer__links { display: flex; flex-direction: column; gap: 15px; }
+.footer__links a { opacity: 0.5; font-size: 0.9rem; }
+.footer__links a:hover { opacity: 1; color: var(--color-accent); transform: translateX(5px); }
+
+.footer__bottom {
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  opacity: 0.3;
+}
+
+/* --- 9. COOKIE & LEGAL --- */
+.cookie-bar {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 20px 40px;
+  display: none;
+  z-index: 2000;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+}
+
+.pages { padding: 200px 0 100px; }
+.pages h1 { color: var(--color-accent); margin-bottom: 40px; }
+.pages p { margin-bottom: 20px; opacity: 0.7; max-width: 800px; }
+
+/* --- 10. АДАПТИВНОСТЬ --- */
+@media (max-width: 1024px) {
+  .footer__grid { grid-template-columns: 1fr 1fr; }
+  .benefits-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .nav, .header .btn { display: none; }
+  .burger { display: flex; }
+  .grid-2, .cases-grid, .benefits-grid { grid-template-columns: 1fr; }
+  .hero__title { font-size: 2.5rem; }
+  .footer__grid { grid-template-columns: 1fr; gap: 40px; }
+  .blog-card { grid-template-columns: 1fr; gap: 10px; }
+}
+/* --- Стилизация секции TRENDS --- */
+
+.trends {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Настройка сетки для этой секции */
+.trends .grid-2 {
+  align-items: center;
+  gap: 100px; /* Большой отступ между текстом и фото */
+}
+
+/* Контентная часть */
+.trends .section__content {
+  position: relative;
+  z-index: 2;
+}
+
+.trends .section__content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-top: 30px;
+  opacity: 0.8;
+  max-width: 500px;
+}
+
+/* Обертка для изображения (reveal-effect) */
+.section__img-wrapper {
+  position: relative;
+  background-color: var(--color-muted); /* Фон до загрузки фото */
+  line-height: 0;
+}
+
+/* Декоративная рамка сзади в стиле антидизайна */
+.section__img-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--color-accent);
+  z-index: -1;
+  transition: var(--transition);
+}
+
+.section__img-wrapper:hover::after {
+  top: -10px;
+  left: -10px;
+}
+
+/* Само изображение */
+.reveal-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: grayscale(1); /* Изначально ч/б */
+  transition: filter 0.8s ease, transform 0.8s ease;
+  object-fit: cover;
+}
+
+/* Эффект при наведении на секцию или картинку */
+.section__img-wrapper:hover .reveal-img {
+  filter: grayscale(0); /* Цвет проявляется */
+  transform: scale(1.02);
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 992px) {
+  .trends .grid-2 {
+      gap: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .trends .grid-2 {
+      grid-template-columns: 1fr; /* В колонку на мобилках */
+      text-align: left;
+  }
+
+  .section__img-wrapper::after {
+      display: none; /* Убираем декор на мелких экранах для чистоты */
+  }
+}
