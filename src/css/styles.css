@@ -395,7 +395,7 @@ h1, h2, h3, h4 {
 }
 
 .pages { padding: 200px 0 100px; }
-.pages h1 { color: var(--color-accent); margin-bottom: 40px; }
+.pages h1 { color: var(--color-accent); margin-bottom: 40px; font-size: 1.6em;}
 .pages p { margin-bottom: 20px; opacity: 0.7; max-width: 800px; }
 
 /* --- 10. АДАПТИВНОСТЬ --- */
